@@ -1,18 +1,20 @@
+// Import necessary dependencies
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-// create our User model
+// Define the User model with its attributes and methods
 class User extends Model {
-  // set up method to run on instance data (per user) to check password
+  // Method to check if the provided password matches the user's hashed password
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-// create fields/columns for User model
+// Initialize the User model
 User.init(
   {
+    // Define the model attributes
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,8 +42,8 @@ User.init(
     }
   },
   {
+    // Define hooks to hash the password before creating or updating a user
     hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
@@ -52,6 +54,7 @@ User.init(
         return updatedUserData;
       }
     },
+    // Define connection parameters
     sequelize,
     timestamps: false,
     freezeTableName: true,
@@ -60,4 +63,5 @@ User.init(
   }
 );
 
+// Export the User model
 module.exports = User;
