@@ -1,22 +1,15 @@
-module.exports = {
-    format_date: date => {
-      return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
-        date
-      ).getFullYear()}`;
-    },
-    format_url: url => {
-      return url
-        .replace('http://', '')
-        .replace('https://', '')
-        .replace('www.', '')
-        .split('/')[0]
-        .split('?')[0];
-    },
-    format_plural: (word, amount) => {
-      if (amount !== 1) {
-        return `${word}s`;
-      }
-  
-      return word;
-    }
-  };
+const formatDate = (date) => {
+  const [month, day, year] = new Date(date).toLocaleDateString().split("/");
+  return `${month}/${day}/${year}`;
+};
+
+const formatUrl = (url) => {
+  const domain = new URL(url).hostname.replace('www.', '');
+  return domain.split('.')[0];
+};
+
+const formatPlural = (word, amount) => {
+  return amount !== 1 ? `${word}s` : word;
+};
+
+module.exports = { formatDate, formatUrl, formatPlural };
