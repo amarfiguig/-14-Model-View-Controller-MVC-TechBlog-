@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Vote extends Model {}
 
+// Initialize the Vote model with its attributes and associations
 Vote.init(
   {
     id: {
@@ -14,16 +15,16 @@ Vote.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'user',
-        key: 'id'
+        model: 'user', // Referencing the User model
+        key: 'id' // Using the id attribute as the reference key
       }
     },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'post',
-        key: 'id'
+        model: 'post', // Referencing the Post model
+        key: 'id' // Using the id attribute as the reference key
       }
     }
   },
@@ -36,4 +37,5 @@ Vote.init(
   }
 );
 
+// Export the Vote model
 module.exports = Vote;
