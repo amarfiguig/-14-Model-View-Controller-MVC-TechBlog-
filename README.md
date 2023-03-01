@@ -1,4 +1,5 @@
-# MVC Tech Blog ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+# 14 Model View Controller MVC Tech Blog
+ ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 The URL or route "/14-Model-View-Controller-MVC-Tech-Blog" is associated with a particular page or resource within a website or web application. This resource could take the form of a blog post, landing page, or section of the website that pertains to the Model-View-Controller (MVC) architecture pattern utilized for developing web applications.
 
