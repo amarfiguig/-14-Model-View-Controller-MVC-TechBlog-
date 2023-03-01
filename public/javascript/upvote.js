@@ -1,24 +1,25 @@
-async function upvoteClickHandler(event) {
+const upvoteBtn = document.querySelector('.upvote-btn');
+
+upvoteBtn.addEventListener('click', async (event) => {
+  try {
     event.preventDefault();
-  
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-    const response = await fetch('/api/posts/upvote', {
+
+    const id = window.location.pathname.split('/').pop();
+    const response = await fetch(`/api/posts/${id}/upvote`, {
       method: 'PUT',
-      body: JSON.stringify({
-        post_id: id
-      }),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({ post_id: id })
     });
-  
-    if (response.ok) {
-      document.location.reload();
-    } else {
-      alert(response.statusText);
+
+    if (!response.ok) {
+      throw new Error(`Failed to upvote post: ${response.status} ${response.statusText}`);
     }
+
+    location.reload();
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
   }
-  
-  document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
+});
