@@ -29,6 +29,7 @@ This project is a MVC tech blog where the aim and criteria was:
 
   * All in all, this tech blog is a full-featured web application that allows users to publish posts, submit comments, and view content in a dynamic and secure manner.
 </div>
+
 ## Installation 
  
 <ol><li><p>Install all necessary dependencies by running <code>npm install</code>.</p></li><li><p>Copy the <code>.env.EXAMPLE</code> file, rename it to <code>.env</code>, and add your database credentials.</p></li><li><p>Initialize the database by running <code>mysql -u root -p</code>, entering your password, then running <code>source db/schema.sql</code>, and finally <code>quit</code>.</p></li><li><p>Seed the database by running <code>npm run seed</code>.</p></li><li><p>Finally, run the application locally with <code>npm run start</code>.</p></li></ol>
