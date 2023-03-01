@@ -1,8 +1,8 @@
 // Importing the required packages and modules
 const router = require('express').Router();
-const userRoutes = require('./user-routes.js');
-const postRoutes = require('./post-routes');
-const commentRoutes = require('./comment-routes');
+const userRoutes = require('./UserRoutes.js');
+const postRoutes = require('./PostRoutes');
+const commentRoutes = require('./CommentRoutes');
 
 // Adding middleware routes for users, posts, and comments
 router.use('/users', userRoutes);
