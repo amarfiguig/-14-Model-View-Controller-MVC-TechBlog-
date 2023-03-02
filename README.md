@@ -45,7 +45,7 @@ quit
 
 ## Preview
 
- ![Screenshot of website]()
+[Screenshot of website]()
 
 ## Link
  * Link to deployed application: 
