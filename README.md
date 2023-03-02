@@ -53,7 +53,7 @@ quit
       http://www.heroku.com/
 
 ## License 
-        This project is licensed under the MIT License. For more information about this license, please visit:
+This project is licensed under the MIT License. For more information about this license, please visit:
             * https://choosealicense.com/licenses/mit/
 
 ## Questions
